@@ -129,7 +129,7 @@ console.log(totalCost);
 
 // b.
 let wagesPaid = 0;
-let companies= [{"name": "Google", hourlyWage: 400, hoursWorked: 10},{"name": "Amazon", hourlyWage: 380, hoursWorked: 6},{"name": "Facebook", hourlyWage: 350, hoursWorked: 4}]
+let companies= [{"name": "Google", hourlyWage: 400, hoursWorked: 6},{"name": "Amazon", hourlyWage: 380, hoursWorked: 4},{"name": "Facebook", hourlyWage: 350, hoursWorked: 10}]
 
 for (const company of companies) {
     wagesPaid += company.hourlyWage * company.hoursWorked;
