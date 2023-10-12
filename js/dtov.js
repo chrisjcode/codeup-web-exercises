@@ -152,7 +152,7 @@ let password = 'notastrongpassword';
 let validationLengthAtLeast5Characters = password.length >= 5;
 let validationUsernameNotContainedInPassword = !password.toLowerCase().includes(username.toLowerCase());
 let validationLengthLessThan20Characters = password.length <= 20;
-let validationNoWhiteSpace = !!password.trim();
+let validationNoWhiteSpace = !!password.trim() && !password.includes(" ");
 console.log(validationLengthAtLeast5Characters);
 console.log(validationUsernameNotContainedInPassword);
 console.log(validationLengthLessThan20Characters);
