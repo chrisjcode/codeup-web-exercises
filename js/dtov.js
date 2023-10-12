@@ -122,7 +122,7 @@ let rentedMovies = [{'movieName': 'Brother Bear', daysRented: 5}, {'movieName': 
 let totalCost = 0;
 
 for (const rentedMovie of rentedMovies) {
-    totalCost = totalCost + (dailyCost * rentedMovie.daysRented)
+    totalCost += dailyCost * rentedMovie.daysRented;
 }
 
 console.log(totalCost);
@@ -132,7 +132,7 @@ let wagesPaid = 0;
 let companies= [{"name": "Google", hourlyWage: 400, hoursWorked: 10},{"name": "Amazon", hourlyWage: 380, hoursWorked: 6},{"name": "Facebook", hourlyWage: 350, hoursWorked: 4}]
 
 for (const company of companies) {
-    wagesPaid = wagesPaid + (company.hourlyWage * company.hoursWorked)
+    wagesPaid += company.hourlyWage * company.hoursWorked;
 }
 
 console.log(wagesPaid);
