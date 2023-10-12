@@ -117,7 +117,7 @@ console.log(codeUpCutOut);
 
 // a.
 let dailyCost = 3;
-let rentedMovies = [{'movieName': 'Brother Bear', daysRented: 5}, {'movieName': 'Little Mermaid', daysRented: 3}, {'movieName': 'Herculies', daysRented: 3}];
+let rentedMovies = [{'movieName': 'Brother Bear', daysRented: 5}, {'movieName': 'Little Mermaid', daysRented: 3}, {'movieName': 'Hercules', daysRented: 1}];
 
 let totalCost = 0;
 
