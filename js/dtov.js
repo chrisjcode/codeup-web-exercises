@@ -101,7 +101,7 @@ console.log(sample.indexOf('c'))
 
 // you get -1 because there is no lowercase c and when javaScript cant find something the return value is -1
 
-console.log()
+console.log(sample.indexOf('C'))
 
 // 6, index of string starts at 0
 
