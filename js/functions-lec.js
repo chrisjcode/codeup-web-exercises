@@ -48,6 +48,34 @@ lowerCase(word);
 console.log(word);
 
 // arrow function
-const lowerCase =  (str) =>{
-    word = str.toLowerCase();
+const lowerCase = (str) => str.toLowerCase();
+const lowerCase = (str) => { str.toLowerCase()};
+
+// default values
+function greeting(greeting = 'Yo Yo'){
+    return greeting;
 }
+
+console.log(greeting());
+console.log(greeting('Hey Hey'));
+
+//Scope
+// Global Scope
+let globalScope;
+function test(){
+    let functionScope = 'a'
+
+    if(true){
+        let blockScope = 'a'
+    }
+
+    setTimeout(() => {
+        console.log(functionScope);
+        console.log(blockScope);
+
+    }, 1000);
+}
+
+// console.log(localScope);
+
+
