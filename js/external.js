@@ -29,4 +29,22 @@ for (const company of companies) {
     wagesPaid += company.hourlyWage * parseInt(userInput);
 }
 
-alert(`Your total pay this period is ${wagesPaid}.`);
+alert(`Your total pay this period is ${wagesPaid.toFixed(2)}.`);
+
+function trueParseInt(input){
+    if(!input){
+        console.log('NaN');
+        return NaN;
+    }
+    for (let charIndex = 0; charIndex < input.length; charIndex++) {
+        console.log(input.charAt(charIndex))
+       if(typeof parseInt(input.charAt(charIndex)) === 'number') {
+           console.log(parseInt(input.substring(charIndex, input.length)))
+           return parseInt(input.substring(charIndex, input.length));
+       }
+    }
+    console.log('NaN');
+    return NaN;
+}
+
+// trueParseInt("scwcw098");trueParseInt("");trueParseInt('ece8kijkm');
