@@ -22,6 +22,22 @@
  * console.logging the function's return value
  */
 
+// function analyzeColor(color){
+//     if(color === 'blue'){
+//         let message = `${color} is the color of the sky.`;
+//         console.log(message);
+//         return message;
+//     }else if(color === 'yellow'){
+//         let message = `The sun is ${color}`;
+//         console.log(message);
+//         return message;
+//     }else{
+//         let message = `I don't know anything about ${color}`;
+//         console.log(message);
+//         return message;
+//     }
+// }
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -34,18 +50,33 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-
+analyzeColor(randomColor);
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
-
+function analyzeColor(color){
+    switch (color) {
+        case 'blue': let message = `${color} is the color of the sky.`;
+            console.log(message);
+            return message;
+        case 'yellow': let yellowMessage = `The sun is ${color}`;
+            console.log(yellowMessage);
+            return yellowMessage;
+        default: let defaultMessage = `I don't know anything about ${color}`;
+            console.log(defaultMessage);
+            return defaultMessage;
+    }
+}
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+let colorInput = prompt('Whats your favorite color?');
+alert(analyzeColor(colorInput));
 
 /* ########################################################################## */
 
@@ -69,6 +100,27 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+
+// let luckyNumber = Math.floor(Math.random() * 6);
+function discountedPrice(totalPrice){
+
+    switch (luckyNumber) {
+        case 0:
+            return `Total Price: $${totalPrice}`;
+        case 1:
+            return `Total Price: $${totalPrice - (totalPrice * .15)}`;
+        case 2:
+            return `Total Price: $${totalPrice - (totalPrice * .25)}`;
+        case 3:
+            return `Total Price: $${totalPrice - (totalPrice * .35)}`;
+        case 4:
+            return `Total Price: $${totalPrice - (totalPrice * .45)}`;
+        case 5:
+            return `Free`;
+    }
+}
+
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -78,7 +130,11 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// const luckyNumber = Math.floor(Math.random() * 6);
+const luckyNumber = Math.floor(Math.random() * 6);
+
+let priceInput = prompt('How much was your bill');
+
+alert(`Your lucky number was ${luckyNumber} and the total price of your bill is ${discountedPrice(parseInt(priceInput))}`);
 
 /**
  * TODO:
@@ -98,3 +154,24 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+let funWithNumbers = (wantsToPlay = confirm('Would you like to enter a number')) => {
+  if(wantsToPlay) {
+    let numberInput = prompt('Type a number');
+      if(typeof parseInt(numberInput) === 'number' && !Number.isNaN(parseInt(numberInput))){
+          let parsedNumber = parseInt(numberInput);
+          let message = `
+          1. The number ${parsedNumber} is ${parsedNumber % 2 === 0 ? 'Even' : 'Odd'}
+          2. Adding 100 to ${parsedNumber} is ${parsedNumber + 100}
+          3. The number ${parsedNumber} is ${parsedNumber >= 0 ? 'Positive' : 'Negative'}
+          `
+       alert(message);
+      }else{
+          alert('The user input is not of number type');
+      }
+  }else{
+      alert('That\'s fine I don\'t want to play with you anyway');
+  }
+}
+
+funWithNumbers();
