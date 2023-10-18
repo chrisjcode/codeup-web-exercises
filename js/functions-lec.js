@@ -27,13 +27,13 @@ console.log(JSON.stringify(decrement))
 
 //Arrow Functions
 
-const fullName = (firstName, lastName) => {
+/*const fullName = (firstName, lastName) => {
     return `${firstName + lastName}`;
 }
 // oe line arrow function
-cosnt fullName = (firstName, lastName ) => `${firstName + lastName}`;
+const fullName = (firstName, lastName ) => `${firstName + lastName}`;*/
 // long arrow
-cosnt fullName = ( firstName, lastName) =>{
+const fullName = ( firstName, lastName) =>{
     return `${firstName + lastName}`;
 }
 
