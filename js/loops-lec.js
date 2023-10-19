@@ -38,7 +38,7 @@ do{
 // }while(example2Num < 100)
 
 
-const secretNumber = 7;
+/*const secretNumber = 7;
 let guess;
 
 // do-while loop
@@ -57,5 +57,56 @@ do {
         console.log("Guess a number");
     }
 
-} while (guess !== secretNumber)
+} while (guess !== secretNumber)*/
 
+//  for loops
+
+for (let index = 0; index < 20; index++) {
+    console.log(index);
+}
+
+for (let index = 0; index < 100; index+=5) {
+    console.log(index);
+}
+
+
+let hello = "hello";
+
+for (let index = 0; index < hello.length; index++) {
+    console.log(hello);
+}
+
+for (let i = 0, j = 9; i < 10; i++, j--) {
+    console.log('for loop iteration #' + i + ', j = ' + j);
+}
+// break
+for (let i = 0; i < 100; i++) {
+    console.log(i);
+    break;
+
+}
+
+for (let i = 0; i < 100; i++) {
+    console.log(i);
+    if(i === 50){
+        break;
+    //     stops for loop
+    }
+}
+
+for (let i = 0; i < 100; i++) {
+    console.log(i);
+    if(i === 3) {
+        continue;
+    //     loop will go back to reiterate the loop once i = 0; opposite of break.
+    }
+    console.log(i);
+
+}
+
+for (let i = 0; i < 4; i++) {
+    if(i % 2 === 0){
+        continue;
+    }
+    console.log('Here is a lovely even number');
+}
