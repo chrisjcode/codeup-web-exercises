@@ -5,7 +5,7 @@ function showMultiplicationTable(factor1Input, timesTableNumCap = 10) {
         return;
     }
     for (let factor2 = 1; factor2 <= timesTableNumCap; factor2++) {
-        console.log(`${timesTableNumCap} x ${factor2} = ${timesTableNumCap * factor2}`)
+        console.log(`${factor1Input} x ${factor2} = ${factor1Input * factor2}`)
     }
 }
 
