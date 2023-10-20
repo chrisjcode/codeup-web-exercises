@@ -23,8 +23,8 @@ perplexed + 2;
 
 //NaN
 
-let price = 2.7;
-price.toFixed(2);
+// let price = 2.7;
+// price.toFixed(2);
 
 // '2.70'
 
