@@ -34,3 +34,9 @@ for (let counter = 1; counter <= 9; counter++) {
 for (let num = 100; num >= 5; num-=5) {
     console.log(num);
 }
+
+var i = "true";
+console.log(i = true);
+console.log(i == true);
+console.log(i === true);
+console.log((i == true && i === true));
