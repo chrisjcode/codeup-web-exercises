@@ -10,10 +10,10 @@ function logEvenNumbers () {
             evenArray.push(num);
         }
     }
-    console.log(evenArray);
+   return evenArray;
 }
 
-console.log(logEvenNumbers);
+console.log(logEvenNumbers());
 
 
 // oct 19
