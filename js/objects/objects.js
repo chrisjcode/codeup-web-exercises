@@ -51,6 +51,7 @@
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
     ];
+
     shoppers.forEach((shopper) => {
         let originalPrice = shopper.amount;
         let totalPriceMessage = `The amount of ${shopper.name}'s items purchased is $${shopper.amount}. `;
@@ -79,6 +80,13 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    let books = [{title: 'Moby-Dick', author: {firstName: 'Herman', lastName: 'Melville'}}, {
+        title: 'Hangman',
+        author: {firstName: 'Maya', lastName: 'Binyam'}
+    }, {title: 'Space Brat', author: {firstName: 'Bruce', lastName: 'Coville'}}, {
+        title: 'THe Enchanters',
+        author: {firstName: 'James', lastName: 'Ellroy'}
+    }, {title: 'Devil Makes Three', author: {firstName: 'Ben', lastName: 'Fountain'}}];
 
     /**
      * TODO:
@@ -105,6 +113,18 @@
      *      ...
      */
 
+    let bookList = "";
+    books.forEach((bookDetail, index) => {
+        bookList += `
+         Book ${++index}
+         Title: ${bookDetail.title}
+         Author: ${bookDetail.author.firstName} ${bookDetail.author.lastName}
+         --------------------------------------------------------------------
+        `
+    });
+
+    console.log(bookList);
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -115,5 +135,36 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook({title, author}) {
+        return {title, author};
+    }
+
+    function showBookInfo({title, author}, index) {
+        console.log(`
+         Book ${++index}
+         Title: ${title}
+         Author: ${author.firstName} ${author.lastName}
+         ------------------------------------------------------------
+        `)
+    }
+
+    let newBooks = [];
+
+    let bookQuantity = prompt("How many books would you like to add?");
+
+    for (let bookCounter = 0; bookCounter < parseInt(bookQuantity); bookCounter++) {
+        let title = prompt(`What is the title of the book number ${bookCounter + 1}`);
+        let author = {};
+        author.firstName = prompt(`What is the first name of the author of ${title}`);
+        author.lastName = prompt(`What is the last name of the author of ${title}?`);
+        newBooks.push(createBook({title, author}));
+    }
+
+    newBooks.forEach((bookDetail, index) => {
+        showBookInfo(bookDetail, index);
+    });
+
+    alert('Your books have been listed');
 
 })();
