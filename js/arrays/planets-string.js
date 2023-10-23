@@ -32,6 +32,8 @@
         webPlanetString += planet.concat(`<br>`);
     });
 
+    document.getElementById('planetString').innerHTML = webPlanetString;
+
     console.log(webPlanetString);
 
     let undorderedPlanetList = `<ul>`;
@@ -44,5 +46,6 @@
         }
     });
     console.log(undorderedPlanetList);
-
+    document.getElementById('planetList').innerHTML = undorderedPlanetList;
 })();
+
