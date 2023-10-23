@@ -150,22 +150,29 @@
         `)
     }
 
-    let newBooks = [];
 
-    let bookQuantity = prompt("How many books would you like to add?");
+    function getBooks(){
 
-    for (let bookCounter = 0; bookCounter < parseInt(bookQuantity); bookCounter++) {
-        let title = prompt(`What is the title of the book number ${bookCounter + 1}`);
-        let author = {};
-        author.firstName = prompt(`What is the first name of the author of ${title}`);
-        author.lastName = prompt(`What is the last name of the author of ${title}?`);
-        newBooks.push(createBook({title, author}));
+        let newBooks = [];
+
+        let bookQuantity = prompt("How many books would you like to add?");
+
+        for (let bookCounter = 0; bookCounter < parseInt(bookQuantity); bookCounter++) {
+            let title = prompt(`What is the title of the book number ${bookCounter + 1}`);
+            let author = {};
+            author.firstName = prompt(`What is the first name of the author of ${title}`);
+            author.lastName = prompt(`What is the last name of the author of ${title}?`);
+            newBooks.push(createBook({title, author}));
+        }
+
+        newBooks.forEach((bookDetail, index) => {
+            showBookInfo(bookDetail, index);
+        });
+
+        alert('Your books have been listed');
     }
 
-    newBooks.forEach((bookDetail, index) => {
-        showBookInfo(bookDetail, index);
-    });
+    getBooks();
 
-    alert('Your books have been listed');
 
 })();
