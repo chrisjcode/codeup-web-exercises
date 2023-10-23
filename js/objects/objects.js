@@ -57,9 +57,10 @@
         let totalPriceMessage = `The amount of ${shopper.name}'s items purchased is $${shopper.amount}. `;
         let discountMessage = '';
         let eligibleDiscount = .12;
+        let discount = (originalPrice * eligibleDiscount);
         if (originalPrice > 200) {
-            let discountedPrice = originalPrice - (originalPrice * eligibleDiscount);
-            discountMessage = `${shopper.name} received a discount of 12% and will now pay $${discountedPrice}`;
+            let discountedPrice = originalPrice - discount;
+            discountMessage = `${shopper.name} received a discount of ${discount} and will now pay $${discountedPrice}`;
         } else {
             discountMessage = `No discount received. ${shopper.name} will pay $${originalPrice}`;
         }
