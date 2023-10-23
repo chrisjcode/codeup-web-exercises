@@ -1,6 +1,14 @@
 // Christopher Jackson
 //  Daily Warmups
 
+// oct 23
+
+let movieArray = ["Major Payne","Ace Ventura","Toy Story","Small Soldiers","Catch Me If You Can"];
+
+movieArray.sort().forEach((movie) => {
+    console.log(movie);
+});
+
 // oct 20
 
 function logEvenNumbers () {

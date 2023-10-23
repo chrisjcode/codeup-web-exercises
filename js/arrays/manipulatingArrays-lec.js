@@ -43,7 +43,7 @@ console.log(colors);
 // ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
 
 // ascending sort function a < b ? -1 : a > b ? 1 : 0;
-// ascending sort function a > b ? -1 : a < b ? 1 : 0;
+// descending sort function a > b ? -1 : a < b ? 1 : 0;
  descendingSort = (a,b)=> {
     return a > b ? -1 : a < b ? 1 : 0;
 }
