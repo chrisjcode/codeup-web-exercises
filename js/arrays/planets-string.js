@@ -46,6 +46,11 @@
         }
     });
     console.log(undorderedPlanetList);
-    document.getElementById('planetList').innerHTML = undorderedPlanetList;
+    // document.getElementById('planetList').innerHTML = undorderedPlanetList;
+
+    // using joins
+
+    document.getElementById('planetList').innerHTML =  `<ul><li>
+    ${planetsArray.join(`</li><li>`)}</li></ul>`;
 })();
 
