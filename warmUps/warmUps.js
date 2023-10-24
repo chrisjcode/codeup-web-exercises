@@ -1,9 +1,34 @@
 // Christopher Jackson
 //  Daily Warmups
 
+// Oct 24
+
+let cars = [{
+    make: 'BMW',
+    model: '228i',
+    color: 'black',
+
+},
+    {
+        make: 'Dodge',
+        model: 'Viper',
+        color: 'blue',
+
+    },
+    {
+        make: 'Lamborghini',
+        model: 'Diablo',
+        color: 'yellow',
+
+    }]
+
+for (const car of cars) {
+    console.log(` I love the ${car.make} ${car.model} in ${car.color}.`)
+}
+
 // oct 23
 
-let movieArray = ["Major Payne","Ace Ventura","Toy Story","Small Soldiers","Catch Me If You Can"];
+let movieArray = ["Major Payne", "Ace Ventura", "Toy Story", "Small Soldiers", "Catch Me If You Can"];
 
 movieArray.sort().forEach((movie) => {
     console.log(movie);
@@ -11,14 +36,14 @@ movieArray.sort().forEach((movie) => {
 
 // oct 20
 
-function logEvenNumbers () {
+function logEvenNumbers() {
     let evenArray = [];
     for (let num = 1; num < 100; num++) {
-        if(!(num % 2)){
+        if (!(num % 2)) {
             evenArray.push(num);
         }
     }
-   return evenArray;
+    return evenArray;
 }
 
 console.log(logEvenNumbers());
@@ -33,18 +58,17 @@ while (num) {
     console.log(!(num % 2) ? `${num} is even` : num);
 
 
-
 // Oct 12
 
-let firstName = "Christopher";
+    let firstName = "Christopher";
 
-let lastName = "Jackson";
+    let lastName = "Jackson";
 
-let graduationYear = '2005';
+    let graduationYear = '2005';
 
-let message = `My name is ${firstName + lastName}, and I graduted highscool ${graduationYear}`;
+    let message = `My name is ${firstName + lastName}, and I graduted highscool ${graduationYear}`;
 
-console.log(message);
+    console.log(message);
 
 }
 
