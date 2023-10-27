@@ -2,10 +2,52 @@
 <html lang="en">
 <head>
     <style>
+        * {
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 1rem;
+        }
+
+        .github-logo, .codeup-emblem {
+            width: 32px;
+            height: 32px;
+            margin: 0 5px;
+        }
+
+        hr, .tabs-list {
+            margin: 50px auto;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        .nav-list li, .footer-links-left li, .footer-links-right li, .tabs-list li {
+            display: flex;
+            list-style-type: none;
+            margin: 0 10px;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .nav-list li, .nav-list li a {
+            color: lightgray;
+        }
+
         .container {
             width: 90%;
             margin: 0 auto;
             border: solid 1px silver;
+        }
+
+        nav {
+            height: 50px;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 0;
+            display: flex;
+            background-color: #0d1116
         }
 
         .row {
@@ -16,19 +58,20 @@
             height: 75px;
         }
 
-        .header.row {
+        .heading.row {
             height: 50px;
-            background-color: lightgray;
+            background-color: #f6f7fa;
 
         }
 
         .codeup-dev-team {
-            display: flex;
-            align-items: center;
+            /*display: flex;*/
+            /*align-items: center;*/
+            justify-content: center;
         }
 
-        .col- * {
-            display: flex;
+        [class*='col-'] {
+            display: flex !important;
         }
 
         .col-1 {
@@ -78,6 +121,55 @@
         .col-12 {
             width: 100%;
         }
+
+        .codeup-emblem {
+            height: 50px;
+            width: 50px;
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 15px auto;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+
+        .github-table-col-1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .footer-links-left li, .footer-links-right li {
+            font-size: .7rem;
+        }
+
+        .footer-links-right {
+            justify-content: flex-end;
+            margin: 10px;
+        }
+
+        .footer-links-right ul {
+            margin-right: 15px;
+        }
+
+
+        .container .col-8 {
+            margin-left: 20px;
+        }
+
+        footer div {
+            border: none !important;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -86,8 +178,11 @@
     <title>Github Copy</title>
 </head>
 <body>
+
 <nav>
-    <ul>
+
+    <ul class="nav-list">
+        <li><img class="github-logo" src="../../../images/github-logo2.webp" alt="Github logo"></li>
         <li>Pull requests</li>
         <li>Issues</li>
         <li>Marketplace</li>
@@ -95,32 +190,94 @@
     </ul>
 </nav>
 <header>
+    <img class="codeup-emblem" src="../../../images/codeUpLogo.svg" alt="codeup emblem">
+    <h1>CodeUp</h1>
 </header>
 
-<h1></h1>
+<!--tabs section-->
+<!--needs bootstrap, my current classes and css collide with the css class names in bootstrap-->
+<ul class="tabs-list">
+    <li>Pull requests 39</li>
+    <li>Issues 15</li>
+    <li>Marketplace 7</li>
+    <li>Projects 0</li>
+    <li>Settings</li>
+</ul>
 
 <section class="container">
-    <div class="header row">
-        <div class="col-4 codeup-dev-team"><h4>Codeup's dev team</h4></div>
-        <div class="col-4">egeggege</div>
-        <div class="col-4">egegegegeg</div>
+    <div class="heading row">
+        <div class="col-4 codeup-dev-team"><h3>Codeup's dev team</h3></div>
+        <div class="col-8"></div>
     </div>
 
     <div class="row">
-        <div class="col-4">3ffefegeg</div>
-        <div class="col-4">egeggege</div>
-        <div class="col-4">egegegegeg</div>
-
+        <div class="col-9">
+            <div class="flex">
+                <img class="codeup-emblem" src="../../../images/avatar1.png" alt="codeup emblem">
+                <div class="github-table-col-1">
+                    <p><a href="#">Kent Beck</a></p>
+                    <span>KentBeck</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"><span>Member</span></div>
+        <div class="col-1">1 team</div>
     </div>
 
     <div class="row">
-
+        <div class="col-9">
+            <div class="flex">
+                <img class="codeup-emblem" src="../../../images/avatar2.png" alt="avatar2">
+                <div class="github-table-col-1">
+                    <p><a href="#">Codeup Instruction Staff</a></p>
+                    <span>CodeupInstructors</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"><span>Member</span></div>
+        <div class="col-1">1 team</div>
     </div>
 
     <div class="row">
-
+        <div class="col-9">
+            <div class="flex">
+                <img class="codeup-emblem" src="../../../images/avatar3.png" alt="avatar3">
+                <div class="github-table-col-1">
+                    <p><a href="#">Martin Fowler</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-1">Member<span></span></div>
+        <div class="col-1">0 teams</div>
     </div>
+
+
 </section>
 <hr>
+<footer>
+    <div class="row">
+        <div class="col-6">
+            <ul class="footer-links-left">
+                <li>&copy 2018 GitHub, Inc.</li>
+                <li>Terms</li>
+                <li>Privacy</li>
+                <li>Security</li>
+                <li>Status</li>
+                <li>Help</li>
+            </ul>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-5 footer-links-right">
+            <ul>
+                <li>Contact Github</li>
+                <li>API</li>
+                <li>Training</li>
+                <li>Shop</li>
+                <li>Blog</li>
+                <li>About</li>
+            </ul>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
