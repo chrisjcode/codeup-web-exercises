@@ -5,3 +5,43 @@
 img{
     width: 100%;
 }
+
+h1 {
+    text-align: center;
+}
+
+body{
+    background-image: url('../images/ss3KWave.gif');
+    background-position: top left;
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+li{
+    list-style-type: square;
+}
+
+*{
+    font-family: sans-serif;
+}
+table, td, tr{
+    padding: 5px;
+    font-size: 2rem;
+}
+
+
+a:link {
+    color:red;
+}
+
+a:visited {
+    color:black;
+}
+
+a:hover {
+    color:blue;
+}
+
+a:active {
+    color:green;
+}
