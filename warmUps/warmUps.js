@@ -42,20 +42,16 @@
 
 let javaScriptGurusList = (...developers) => {
 
-
-    let javaScriptUsers = developers
-        .filter((developer) => developer.languages.frontend
-        .find((language) => language === "JavaScript"))
-        .map((developer) => developer.name);
-
-    let javaScriptGurusList = [];
+    // let javaScriptGurusList = [];
     // developers.forEach((element) => {
     //     if(element.languages?.frontend?.includes('JavaScript')){
     //         javaScriptGurusList.push(element.name);
     //     }
     // })
-    return javaScriptUsers;
-
+    return developers
+            .filter((developer) => developer.languages.frontend
+            .find((language) => language === "JavaScript"))
+            .map((developer) => developer.name);
 }
 
 console.log(javaScriptGurusList(...developers));
