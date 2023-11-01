@@ -1,6 +1,65 @@
 // Christopher Jackson
 //  Daily Warmups
 
+// Nov 1
+
+// Objective: Create a function that takes in an array and returns an array of the names of people who know JavaScript.
+//
+let javaScriptGurusList = (...developers) => {
+    let javaScriptGurusList = [];
+
+    developers.forEach((element) => {
+        if(element.languages?.frontend?.includes('JavaScript')){
+            javaScriptGurusList.push(element.name);
+        }
+    })
+    return javaScriptGurusList;
+
+}
+
+console.log(javaScriptGurusList(...developers));
+
+//     Data Structure/Example Input:
+    let developers = [
+        {
+            name: "Jonathan",
+            languages: {
+                frontend: ["HTML", "JavaScript", "CSS"],
+                backend: ["Java"]
+            }
+        },
+        {
+            name: "Bonnie",
+            languages: {
+                frontend: ["JavaScript"],
+                backend: []
+            }
+        },
+        {
+            name: "Raj",
+            languages: {
+                frontend: [],
+                backend: ["C#", "Java", "Python"]
+            }
+        },
+        {
+            name: "Carmen",
+            languages: {
+                frontend: ["JavaScript", "HTML", "CSS", "React"],
+                backend: ["C#", "Java", "Python", "TypeScript"]
+            }
+        },
+    ]
+
+
+
+
+
+
+
+
+
+
 // Oct 24
 
 let cars = [{
