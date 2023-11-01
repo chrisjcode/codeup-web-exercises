@@ -5,19 +5,7 @@
 
 // Objective: Create a function that takes in an array and returns an array of the names of people who know JavaScript.
 //
-let javaScriptGurusList = (...developers) => {
-    let javaScriptGurusList = [];
 
-    developers.forEach((element) => {
-        if(element.languages?.frontend?.includes('JavaScript')){
-            javaScriptGurusList.push(element.name);
-        }
-    })
-    return javaScriptGurusList;
-
-}
-
-console.log(javaScriptGurusList(...developers));
 
 //     Data Structure/Example Input:
     let developers = [
@@ -52,7 +40,23 @@ console.log(javaScriptGurusList(...developers));
     ]
 
 
+let javaScriptGurusList = (...developers) => {
+    let javaScriptGurusList = [];
 
+    let javaScriptUsers = developers.filter((developer) => developer.languages.frontend.find((language) => language === "JavaScript")).map((developer) => developer.name);
+
+    console.log(javaScriptUsers);
+
+    developers.forEach((element) => {
+        if(element.languages?.frontend?.includes('JavaScript')){
+            javaScriptGurusList.push(element.name);
+        }
+    })
+    return javaScriptGurusList;
+
+}
+
+console.log(javaScriptGurusList(...developers));
 
 
 
