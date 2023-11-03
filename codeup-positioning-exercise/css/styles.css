@@ -75,42 +75,51 @@ button.btn.btn-login {
     min-width: 250px;
 }
 
-.container{
-    position: relative;
+.container {
+    position: absolute;
     z-index: 10;
 }
 
 img {
     position: absolute;
-    z-index: -1;
+    z-index: 0;
 }
 
-.dot-1{
-
+.dot-1 {
+    left: 10%;
 }
 
-.dot-2{
-
+.dot-2 {
+    top: 0;
+    right: 5%;
 }
 
-.footer-wave-bottom{
-
+.footer-wave-bottom {
+    right: 0;
+    bottom: 0;
 }
 
-.footer-wave-top{
-
+.footer-wave-top {
+    bottom: 0;
+    z-index: 1;
 }
 
-.times-icon{
-
+.times-icon {
+    background: white;
+    border-radius: 50%;
+    top: -4px;
+    right: -3px;
+    padding: 10px;
+    box-shadow: 0px 0px 7px 0.5px rgba(0, 0, 0, 0.25);
 }
 
-.wavy-lines-1{
-
+.wavy-lines-1 {
+    left: 1%;
+    top: 15%;
 }
 
-.wavy-lines-2{
-
+.wavy-lines-2 {
+    right: 1%;
 }
 
 
