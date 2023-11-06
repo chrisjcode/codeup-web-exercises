@@ -1,6 +1,27 @@
 // Christopher Jackson
 //  Daily Warmups
 
+// Nov 6
+
+// FizzBuzz
+
+let fizzBuzz = (num) => {
+    for (let i = 1; i <= num; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log("FizzBuzz");
+        } else if (i % 3 === 0) {
+            console.log("Fizz");
+        } else if (i % 5 === 0) {
+            console.log("Buzz");
+        } else {
+            console.log(i)
+        }
+    }
+}
+
+fizzBuzz(100);
+
+
 // Nov 1
 
 // Objective: Create a function that takes in an array and returns an array of the names of people who know JavaScript.
@@ -8,36 +29,36 @@
 
 
 //     Data Structure/Example Input:
-    let developers = [
-        {
-            name: "Jonathan",
-            languages: {
-                frontend: ["HTML", "JavaScript", "CSS"],
-                backend: ["Java"]
-            }
-        },
-        {
-            name: "Bonnie",
-            languages: {
-                frontend: ["JavaScript"],
-                backend: []
-            }
-        },
-        {
-            name: "Raj",
-            languages: {
-                frontend: [],
-                backend: ["C#", "Java", "Python"]
-            }
-        },
-        {
-            name: "Carmen",
-            languages: {
-                frontend: ["JavaScript", "HTML", "CSS", "React"],
-                backend: ["C#", "Java", "Python", "TypeScript"]
-            }
-        },
-    ]
+let developers = [
+    {
+        name: "Jonathan",
+        languages: {
+            frontend: ["HTML", "JavaScript", "CSS"],
+            backend: ["Java"]
+        }
+    },
+    {
+        name: "Bonnie",
+        languages: {
+            frontend: ["JavaScript"],
+            backend: []
+        }
+    },
+    {
+        name: "Raj",
+        languages: {
+            frontend: [],
+            backend: ["C#", "Java", "Python"]
+        }
+    },
+    {
+        name: "Carmen",
+        languages: {
+            frontend: ["JavaScript", "HTML", "CSS", "React"],
+            backend: ["C#", "Java", "Python", "TypeScript"]
+        }
+    },
+]
 
 
 let javaScriptGurusList = (...developers) => {
@@ -49,17 +70,12 @@ let javaScriptGurusList = (...developers) => {
     //     }
     // })
     return developers
-            .filter((developer) => developer.languages.frontend
+        .filter((developer) => developer.languages.frontend
             .find((language) => language === "JavaScript"))
-            .map((developer) => developer.name);
+        .map((developer) => developer.name);
 }
 
 console.log(javaScriptGurusList(...developers));
-
-
-
-
-
 
 
 // Oct 24
