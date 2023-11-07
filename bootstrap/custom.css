@@ -28,6 +28,10 @@
     justify-content: center;
 }
 
+h2{
+    margin: 10px auto;
+}
+
 .badge {
     margin-right: 5px;
 }
@@ -36,6 +40,13 @@
     padding: 0 !important;
 }
 
+.sign-up-container{
+    width: 50%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+}
 
 .card-body .card-title:first-of-type {
     background-color: #0d6efd;
@@ -70,4 +81,11 @@
 .inner-card{
     margin: 10px;
     padding: 10px;
+}
+#myTabContent{
+    margin-bottom: 2em;
+}
+
+select{
+    width: 98%;
 }
