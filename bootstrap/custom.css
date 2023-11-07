@@ -89,3 +89,7 @@ h2{
 select{
     width: 98%;
 }
+
+input[type="checkbox"] ~ label{
+    text-indent: 10px;
+}
