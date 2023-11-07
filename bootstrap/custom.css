@@ -1,0 +1,73 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+.btn-outline-primary {
+    width: 150%;
+
+}
+
+.jumbotron {
+    background-image: url("../images/pizza.png");
+    height: 346px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.jumbotron-title-bar {
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    opacity: .5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge {
+    margin-right: 5px;
+}
+
+.card > .card-body {
+    padding: 0 !important;
+}
+
+
+.card-body .card-title:first-of-type {
+    background-color: #0d6efd;
+    padding: 0;
+    color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-indent: 10px;
+}
+
+/*.card-body .card-body .card-title {*/
+/*    background-color: #f8f8f8;*/
+/*    color: black;*/
+/*}*/
+
+.card-body .btn {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.card-footer {
+    display: flex;
+    background-color: lightgray;
+    justify-content: end;
+}
+
+.card .card{
+    margin-bottom: 10px;
+}
+
+.inner-card{
+    margin: 10px;
+    padding: 10px;
+}
