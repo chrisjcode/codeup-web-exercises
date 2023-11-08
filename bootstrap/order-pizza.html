@@ -32,7 +32,7 @@
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Zip Code" aria-label="ZipCode">
-                <button class="btn btn-outline-primary" type="submit">Search Stores near you!</button>
+                <button class="btn btn-outline-primary" type="button">Search Stores near you!</button>
             </form>
 
 
@@ -62,8 +62,8 @@
     <h2>Build Your Own Pizza!</h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
-                    role="tab" aria-controls="home" aria-selected="true"><span class="badge bg-secondary">1</span>Size
+            <button class="nav-link active" id="size-tab" data-bs-toggle="tab" data-bs-target="#size" type="button"
+                    role="tab" aria-controls="size" aria-selected="true"><span class="badge bg-secondary">1</span>Size
                 and
                 Crust
             </button>
@@ -80,10 +80,11 @@
             </button>
         </li>
     </ul>
-    <form action="#" method="POST">
+
+    <form id="form" method="POST" action="https://request-inspector.glitch.me/">
 
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade show active" id="size" role="tabpanel" aria-labelledby="size-tab">
                 <!--Cards for Choose Size and Crust-->
 
                 <div class="card">
@@ -130,7 +131,8 @@
                         </div>
 
                         <div class="card-footer">
-                            <a href="#" class="btn btn-primary">Next Step ></a>
+                            <button onclick="activateSecondTab()" class="btn btn-primary" type="button">Next Step ></button>
+<!--                                                        <a data-bs-toggle="tab" data-bs-target="#profile" href="#" class="btn btn-primary">Next Step ></a>-->
                         </div>
                     </div>
                 </div>
@@ -195,8 +197,15 @@
 
 
                         <div class="card-footer">
-                            <a href="#" class="btn btn-primary">< Previous Step</a>
-                            <a href="#" class="btn btn-primary">Next Step ></a>
+                            <button type="button" onclick="activateFirstTab()" class="btn btn-primary">
+                                < Previous Step
+                            </button>
+
+                            <button type="button" onclick="activateThirdTab()" class="btn btn-primary">
+                                Next Step >
+                            </button>
+                            <!--                            < href="#" class="btn btn-primary">< Previous Step</>-->
+                            <!--                            <a href="#" class="btn btn-primary">Next Step ></a>-->
                         </div>
 
                     </div>
@@ -265,20 +274,23 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn btn-primary"> Checkout
+                            <button class="btn btn-primary" type="submit">
+                                Checkout
+                                <!--                                <a href="" class="btn btn-primary"> Checkout-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-cart" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg>
-                            </a>
+                                <!--                                </a>-->
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    </form>
 </div>
-<!--        </form>-->
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -289,5 +301,26 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+
+<script>
+<!--    install npm install bootstrap@5.3.2-->
+
+
+const activateFirstTab = () => {
+    const triggerEl = document.querySelector('#myTab button[data-bs-target="#size"]')
+    bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
+}
+
+const activateSecondTab = () => {
+    const triggerEl = document.querySelector('#myTab button[data-bs-target="#cheese-sauce"]')
+    bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
+}
+
+const activateThirdTab = () => {
+    const triggerEl = document.querySelector('#myTab button[data-bs-target="#toppings"]')
+    bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
+}
+
+</script>
 </body>
 </html>

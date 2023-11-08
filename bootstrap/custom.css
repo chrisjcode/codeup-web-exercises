@@ -93,3 +93,7 @@ select{
 input[type="checkbox"] ~ label{
     text-indent: 10px;
 }
+
+button{
+    outline: none;
+}
