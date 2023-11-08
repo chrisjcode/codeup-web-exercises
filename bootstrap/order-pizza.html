@@ -69,19 +69,21 @@
             </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
-                    role="tab" aria-controls="profile" aria-selected="false"><span class="badge bg-secondary">2</span>Cheese
+            <button class="nav-link" id="cheese-sauce-tab" data-bs-toggle="tab" data-bs-target="#cheese-sauce"
+                    type="button"
+                    role="tab" aria-controls="cheese-sauce" aria-selected="false"><span
+                    class="badge bg-secondary">2</span>Cheese
                 and Sauce
             </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
-                    role="tab" aria-controls="contact" aria-selected="false"><span class="badge bg-secondary">3</span>Toppings
+            <button class="nav-link" id="toppings-tab" data-bs-toggle="tab" data-bs-target="#toppings" type="button"
+                    role="tab" aria-controls="toppings" aria-selected="false"><span class="badge bg-secondary">3</span>Toppings
             </button>
         </li>
     </ul>
 
-    <form id="form" method="POST" action="https://request-inspector.glitch.me/">
+<!--    <form id="form" method="POST" action="https://request-inspector.glitch.me/">-->
 
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="size" role="tabpanel" aria-labelledby="size-tab">
@@ -131,14 +133,15 @@
                         </div>
 
                         <div class="card-footer">
-                            <button onclick="activateSecondTab()" class="btn btn-primary" type="button">Next Step ></button>
-<!--                                                        <a data-bs-toggle="tab" data-bs-target="#profile" href="#" class="btn btn-primary">Next Step ></a>-->
+                            <button onclick="activateSecondTab()" class="btn btn-primary" type="button">Next Step >
+                            </button>
+                            <!--                                                        <a data-bs-toggle="tab" data-bs-target="#profile" href="#" class="btn btn-primary">Next Step ></a>-->
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="tab-pane fade" id="cheese-sauce" role="tabpanel" aria-labelledby="cheese-sauce-tab">
                 <!--Cards for Choose Cheese and Sauce-->
 
                 <div class="card">
@@ -211,7 +214,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
                 <!--Cards for Toppings-->
 
                 <div class="card">
@@ -303,24 +306,24 @@
         crossorigin="anonymous"></script>
 
 <script>
-<!--    install npm install bootstrap@5.3.2-->
+    <!--    install npm install bootstrap@5.3.2-->
 
 
-const activateFirstTab = () => {
-    const triggerEl = document.querySelector('#myTab button[data-bs-target="#size"]')
-    bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
-}
+    const activateFirstTab = () => {
+        const triggerEl = document.querySelector('#myTab button[data-bs-target="#size"]');
+        triggerEl
+        bootstrap.Tab.getOrCreateInstance(triggerEl).show() // Select tab by name
+    }
 
-const activateSecondTab = () => {
-    const triggerEl = document.querySelector('#myTab button[data-bs-target="#cheese-sauce"]')
-    bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
-}
+    const activateSecondTab = () => {
+        const triggerEl = document.querySelector('#myTab button[data-bs-target="#cheese-sauce"]');
+        bootstrap.Tab.getOrCreateInstance(triggerEl).show() // Select tab by name
+    }
 
-const activateThirdTab = () => {
-    const triggerEl = document.querySelector('#myTab button[data-bs-target="#toppings"]')
-    bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
-}
-
+    const activateThirdTab = () => {
+        const triggerEl = document.querySelector('#myTab button[data-bs-target="#toppings"]');
+        bootstrap.Tab.getOrCreateInstance(triggerEl).show() // Select tab by name
+    }
 </script>
 </body>
 </html>

@@ -28,7 +28,7 @@
     justify-content: center;
 }
 
-h2{
+h2 {
     margin: 10px auto;
 }
 
@@ -40,7 +40,7 @@ h2{
     padding: 0 !important;
 }
 
-.sign-up-container{
+.sign-up-container {
     width: 50%;
     display: flex;
     justify-content: right;
@@ -74,26 +74,27 @@ h2{
     justify-content: end;
 }
 
-.card .card{
+.card .card {
     margin-bottom: 10px;
 }
 
-.inner-card{
+.inner-card {
     margin: 10px;
     padding: 10px;
 }
-#myTabContent{
+
+#myTabContent {
     margin-bottom: 2em;
 }
 
-select{
+select {
     width: 98%;
 }
 
-input[type="checkbox"] ~ label{
+input[type="checkbox"] ~ label {
     text-indent: 10px;
 }
 
-button{
+button {
     outline: none;
 }
