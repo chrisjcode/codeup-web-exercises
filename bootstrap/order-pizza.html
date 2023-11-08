@@ -83,214 +83,209 @@
         </li>
     </ul>
 
-    <!--    <form id="form" method="POST" action="https://request-inspector.glitch.me/">-->
+    <form id="form" method="POST" action="https://request-inspector.glitch.me/">
 
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="size" role="tabpanel" aria-labelledby="size-tab">
-            <!--Cards for Choose Size and Crust-->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="size" role="tabpanel" aria-labelledby="size-tab">
+                <!--Cards for Choose Size and Crust-->
 
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Choose Size and Crust</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Choose Size and Crust</h5>
 
-                    <div class="inner-card">
-                        <!--                Nested Card 1 -->
-                        <div class="card">
-                            <div class="card-header">
-                                Hand Tossed
+                        <div class="inner-card">
+                            <!--                Nested Card 1 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    Hand Tossed
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                                    <li class="list-group-item">
+                                        <input type="radio" name="pizzaSize"
+                                               value="hand-tossed-small" id="hand-tossed-small">
+                                        <label for="hand-tossed-small">Small (10")</label>
+                                    </li>
+                                    <li class="list-group-item"><input type="radio" value="hand-tossed-medium"
+                                                                       name="pizzaSize"
+                                                                       id="hand-tossed-medium">
+                                        <label for="hand-tossed-medium">Medium (12")</label></li>
+                                </ul>
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
-                                <li class="list-group-item">
-                                    <input type="radio" name="pizzaSize"
-                                           value="hand-tossed-small" id="hand-tossed-small">
-                                    <label for="hand-tossed-small">Small (10")</label>
-                                </li>
-                                <li class="list-group-item"><input type="radio" value="hand-tossed-medium"
-                                                                   name="pizzaSize"
-                                                                   id="hand-tossed-medium">
-                                    <label for="hand-tossed-medium">Medium (12")</label></li>
-                            </ul>
+                            <!--                Nested Card 2 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    Crispy Thin
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio</li>
+                                    <li class="list-group-item"><input type="radio" value="crispy-medium"
+                                                                       name="pizzaSize"
+                                                                       id="crispy-medium">
+                                        <label for="crispy-medium">Medium (12")</label></li>
+                                    <li class="list-group-item">
+                                        <input type="radio" value="crispy-large" name="pizzaSize"
+                                               id="crispy-large">
+                                        <label for="crispy-large">Large (14")</label>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <!--                Nested Card 2 -->
-                        <div class="card">
-                            <div class="card-header">
-                                Crispy Thin
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio</li>
-                                <li class="list-group-item"><input type="radio" value="crispy-medium"
-                                                                   name="pizzaSize"
-                                                                   id="crispy-medium">
-                                    <label for="crispy-medium">Medium (12")</label></li>
-                                <li class="list-group-item">
-                                    <input type="radio" value="crispy-large" name="pizzaSize"
-                                           id="crispy-large">
-                                    <label for="crispy-large">Large (14")</label>
-                                </li>
-                            </ul>
+
+                        <div class="card-footer">
+                            <button onclick="activateSecondTab()" class="btn btn-primary" type="button">Next Step >
+                            </button>
                         </div>
                     </div>
+                </div>
 
-                    <div class="card-footer">
-                        <button onclick="activateSecondTab()" class="btn btn-primary" type="button">Next Step >
-                        </button>
-                        <!--                                                        <a data-bs-toggle="tab" data-bs-target="#profile" href="#" class="btn btn-primary">Next Step ></a>-->
+            </div>
+            <div class="tab-pane fade" id="cheese-sauce" role="tabpanel" aria-labelledby="cheese-sauce-tab">
+                <!--Cards for Choose Cheese and Sauce-->
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Choose Cheese and Sauce</h5>
+
+                        <div class="inner-card">
+                            <!--                Nested Card 1 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    Cheese
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">How Much?</li>
+                                    <li class="list-group-item">
+                                        <label for="cheeseAmount"></label>
+                                        <select name="cheese-amount" id="cheeseAmount">
+                                            <option>None</option>
+                                            <option>Light</option>
+                                            <option selected>Normal</option>
+                                            <option>Extra</option>
+                                        </select></li>
+
+                                </ul>
+                            </div>
+                            <!--                Nested Card 2 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    Sauce
+                                </div>
+                                <ul class="list-group list-group-flush">
+
+
+                                    <li class="list-group-item">What Type?</li>
+                                    <li class="list-group-item"><label for="sauceType"></label><select name="sauce-type"
+                                                                                                       id="sauceType">
+                                        <option selected>Tomato</option>
+                                        <option>BBQ</option>
+                                        <option>Buffalo</option>
+                                        <option>Alfredo</option>
+                                    </select>
+                                    </li>
+                                    <li class="list-group-item">How Much?</li>
+                                    <li class="list-group-item">
+                                        <label for="sauceAmount"></label>
+                                        <select name="sauce-amount" id="sauceAmount">
+                                            <option>None</option>
+                                            <option>Light</option>
+                                            <option selected>Normal</option>
+                                            <option>Extra</option>
+                                        </select></li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                        <div class="card-footer">
+                            <button type="button" onclick="activateFirstTab()" class="btn btn-primary">
+                                < Previous Step
+                            </button>
+
+                            <button type="button" onclick="activateThirdTab()" class="btn btn-primary">
+                                Next Step >
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </div>
+            <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
+                <!--Cards for Toppings-->
 
-        </div>
-        <div class="tab-pane fade" id="cheese-sauce" role="tabpanel" aria-labelledby="cheese-sauce-tab">
-            <!--Cards for Choose Cheese and Sauce-->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Choose Toppings</h5>
 
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Choose Cheese and Sauce</h5>
+                        <div class="inner-card">
+                            <!--                Nested Card 1 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    Choose Meats
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <input id="beef" type="checkbox" name="beef" value="beef">
+                                        <label for="beef">Beef</label>
+                                    </li>
+                                    <li class="list-group-item">
 
-                    <div class="inner-card">
-                        <!--                Nested Card 1 -->
-                        <div class="card">
-                            <div class="card-header">
-                                Cheese
+                                        <input id="ham" type="checkbox" name="ham" value="ham"> <label
+                                            for="ham">Ham</label>
+                                    </li>
+                                    <li class="list-group-item">
+
+                                        <input id="philly-steak" type="checkbox" name="philly-steak"
+                                               value="philly-steak">
+                                        <label for="philly-steak">Philly Steak</label>
+                                    </li>
+                                    <li class="list-group-item">
+
+                                        <input id="bacon" type="checkbox" name="bacon" value="bacon">
+                                        <label for="bacon">Bacon</label>
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">How Much?</li>
-                                <li class="list-group-item">
-                                    <label for="cheeseAmount"></label>
-                                    <select name="cheese-amount" id="cheeseAmount">
-                                        <option>None</option>
-                                        <option>Light</option>
-                                        <option selected>Normal</option>
-                                        <option>Extra</option>
-                                    </select></li>
+                            <!--                Nested Card 2 -->
+                            <div class="card">
+                                <div class="card-header">
+                                    Choose Non-Meats
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
 
-                            </ul>
-                        </div>
-                        <!--                Nested Card 2 -->
-                        <div class="card">
-                            <div class="card-header">
-                                Sauce
+                                        <input id="green-peppers" type="checkbox" name="green-peppers"
+                                               value="green-peppers">
+                                        <label for="green-peppers">Green Peppers</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input id="mushrooms" type="checkbox" name="mushrooms" value="mushrooms">
+                                        <label for="mushrooms">Mushrooms</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input id="onions" type="checkbox" name="onions" value="onions"><label
+                                            for="onions"> Onions</label></li>
+                                    <li class="list-group-item">
+                                        <input id="jalapeno-peppers" type="checkbox" name="jalapeno-Peppers"
+                                               value="jalapeno-peppers"><label for="jalapeno-peppers"> Jalape&ntilde;o
+                                        peppers</label></li>
+                                </ul>
                             </div>
-                            <ul class="list-group list-group-flush">
-
-
-                                <li class="list-group-item">What Type?</li>
-                                <li class="list-group-item"><label for="sauceType"></label><select name="sauce-type"
-                                                                                                   id="sauceType">
-                                    <option selected>Tomato</option>
-                                    <option>BBQ</option>
-                                    <option>Buffalo</option>
-                                    <option>Alfredo</option>
-                                </select>
-                                </li>
-                                <li class="list-group-item">How Much?</li>
-                                <li class="list-group-item">
-                                    <label for="sauceAmount"></label>
-                                    <select name="sauce-amount" id="sauceAmount">
-                                        <option>None</option>
-                                        <option>Light</option>
-                                        <option selected>Normal</option>
-                                        <option>Extra</option>
-                                    </select></li>
-                            </ul>
-
                         </div>
-                    </div>
-
-
-                    <div class="card-footer">
-                        <button type="button" onclick="activateFirstTab()" class="btn btn-primary">
-                            < Previous Step
-                        </button>
-
-                        <button type="button" onclick="activateThirdTab()" class="btn btn-primary">
-                            Next Step >
-                        </button>
-                        <!--                            < href="#" class="btn btn-primary">< Previous Step</>-->
-                        <!--                            <a href="#" class="btn btn-primary">Next Step ></a>-->
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
-            <!--Cards for Toppings-->
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Choose Toppings</h5>
-
-                    <div class="inner-card">
-                        <!--                Nested Card 1 -->
-                        <div class="card">
-                            <div class="card-header">
-                                Choose Meats
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <input id="beef" type="checkbox" name="beef" value="beef">
-                                    <label for="beef">Beef</label>
-                                </li>
-                                <li class="list-group-item">
-
-                                    <input id="ham" type="checkbox" name="ham" value="ham"> <label
-                                        for="ham">Ham</label>
-                                </li>
-                                <li class="list-group-item">
-
-                                    <input id="philly-steak" type="checkbox" name="philly-steak"
-                                           value="philly-steak">
-                                    <label for="philly-steak">Philly Steak</label>
-                                </li>
-                                <li class="list-group-item">
-
-                                    <input id="bacon" type="checkbox" name="bacon" value="bacon">
-                                    <label for="bacon">Bacon</label>
-                                </li>
-                            </ul>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" type="submit">
+                                Checkout
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                </svg>
+                            </button>
                         </div>
-                        <!--                Nested Card 2 -->
-                        <div class="card">
-                            <div class="card-header">
-                                Choose Non-Meats
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-
-                                    <input id="green-peppers" type="checkbox" name="green-peppers"
-                                           value="green-peppers">
-                                    <label for="green-peppers">Green Peppers</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input id="mushrooms" type="checkbox" name="mushrooms" value="mushrooms">
-                                    <label for="mushrooms">Mushrooms</label>
-                                </li>
-                                <li class="list-group-item">
-                                    <input id="onions" type="checkbox" name="onions" value="onions"><label
-                                        for="onions"> Onions</label></li>
-                                <li class="list-group-item">
-                                    <input id="jalapeno-peppers" type="checkbox" name="jalapeno-Peppers"
-                                           value="jalapeno-peppers"><label for="jalapeno-peppers"> Jalape&ntilde;o
-                                    peppers</label></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary" type="submit">
-                            Checkout
-                            <!--                                <a href="" class="btn btn-primary"> Checkout-->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                 class="bi bi-cart" viewBox="0 0 16 16">
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </svg>
-                            <!--                                </a>-->
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </form>
 </div>
 
