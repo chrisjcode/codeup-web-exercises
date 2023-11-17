@@ -2,7 +2,7 @@
     width: 300px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     margin-top: 50px;
 }
@@ -36,4 +36,41 @@
 
 #toggle-btn:hover {
     background-color: #0056b3;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.indigo {
+    background-color: indigo;
+}
+
+.violet {
+    background-color: violet;
+}
+
+.red {
+    background-color: red;
+}
+
+.new-description {
+    font-family: "Academy Engraved LET", sans-serif;
+    color: limegreen;
 }
