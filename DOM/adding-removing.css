@@ -1,0 +1,12 @@
+.dynamic-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid lightgrey;
+    margin: 15px 0;
+    padding: 0 15px;
+}
+
+.event-trigger {
+    padding: 5px;
+}
