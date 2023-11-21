@@ -51,7 +51,6 @@
         mainHeader.innerHTML = "JavaScript is Cool";
     }
 
-    document.getElementById('main-header-button').addEventListener("click", changeHeader)
 
     // TODO: Uncomment the next line and get the sub header element by id
     const subHeader = document.getElementById("sub-header");
@@ -63,7 +62,6 @@
         subHeader.style.color = 'blue';
     }
 
-    document.getElementById('sub-header-button').addEventListener("click", changeSubHeaderColor)
     // TODO: Uncomment the next line and get all list items
     const listItems = document.querySelectorAll('li');
 
@@ -85,7 +83,6 @@
         document.querySelectorAll("li[data-dbid='1']")[0].style.color = 'blue';
     }
 
-    document.getElementById('list-style-button').addEventListener("click", changesListUp);
 
     // TODO: Set text color of li with dbid = 1 to blue
     // const listItem = document.querySelectorAll("li[data-dbid='1']")[0].style.color = 'blue';
@@ -100,10 +97,39 @@
         subParagraphs[0].innerHTML = "Mission Accomplished!"
     }
 
-    document.getElementById('paragraph-button').addEventListener("click", missionAccomplished);
+    function changeBackgroundColor(event) {
+        event.target.style.backgroundColor = "yellow";
+    }
+
+    for (let elementsByTagNameKey of document.getElementsByTagName('h1')) {
+        elementsByTagNameKey.addEventListener("click", changeBackgroundColor);
+    }
+
+    function changeParagraphFontSize(event) {
+        event.target.style.fontSize = "18px";
+    }
+
+    for (let elementsByTagNameKey of document.getElementsByTagName('p')) {
+        elementsByTagNameKey.addEventListener("dblclick", changeParagraphFontSize);
+    }
+
+    function changeListItemFontColorEnter(event) {
+        event.target.style.color = "red";
+    }
+
+    function changeListItemFontColorLeave(event) {
+        event.target.style.color = "black";
+    }
+    for (let elementsByTagNameKey of document.getElementsByTagName('li')) {
+        elementsByTagNameKey.addEventListener("mouseenter", changeListItemFontColorEnter);
+        elementsByTagNameKey.addEventListener("mouseleave", changeListItemFontColorLeave);
+    }
+
 
 </script>
 </body>
 </html>
 
-<!--Add 4 buttons to the page. Attach click event listeners to each of the buttons and have the handlers perform the modifications that were automatically taking place. For example, the first button should set inner html of mainHeader to "JavaScript is Cool".-->
+
+
+Set all li text color to red when the mouse is hovering; reset to black when it is not.
