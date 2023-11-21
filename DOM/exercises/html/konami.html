@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+<!--<input id="konami-code" type="text">-->
+<script>
+    "use strict";
+    // get input
+    //   store input in array
+    //   check input after each to see if the konami code matches the user input
+    //   ↑ ↑ ↓ ↓ ← → ← → b a enter
+
+
+    document.addEventListener("keyup", konamiCode);
+    let userInputJoined = [];
+    const konomiKeyList = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+
+    function compareInput(userInput) {
+        let konomiKeyListString = konomiKeyList.join();
+        let userInputJoinedString = userInput.join();
+        if (userInputJoinedString === konomiKeyListString) {
+            alert('You have added 30 lives!');
+        } else if (konomiKeyListString.startsWith(userInputJoinedString)) {
+            return;
+        }
+        userInputJoined = [];
+    }
+
+    function konamiCode(event) {
+        event.preventDefault();
+        let replaceKey = undefined;
+        if (event.key === "Shift") return;
+        if (event.key === "B") replaceKey = "b";
+        if (event.key === "A") replaceKey = "a";
+        userInputJoined.push(replaceKey || event.key);
+        compareInput(userInputJoined);
+    }
+</script>
+</body>
+</html>
