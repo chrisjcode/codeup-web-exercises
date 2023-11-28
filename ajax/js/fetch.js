@@ -1,3 +1,4 @@
+"use strict"
 import { Octokit } from "https://esm.sh/@octokit/core";
 
 // Needs to set token to this value

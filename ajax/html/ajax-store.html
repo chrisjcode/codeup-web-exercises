@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <link rel="stylesheet" href="../css/ajax-store.css">
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products" class="styled-table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Categories</th>
+    </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<script>
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
+    function insertTableData(products) {
+        let tableRow;
+        for (let i = 0; i < products.length; i++) {
+            tableRow = document.createElement('tr');
+            tableRow.appendChild(document.createElement('td')).innerHTML = products[i].title;
+            tableRow.appendChild(document.createElement('td')).innerHTML = products[i].quantity;
+            tableRow.appendChild(document.createElement('td')).innerHTML = "$" + products[i].price;
+            tableRow.appendChild(document.createElement('td')).innerHTML = products[i].categories.join();
+            document.getElementById('insertProducts').appendChild(tableRow);
+        }
+        console.log(tableRow);
+    }
+
+    let inventory;
+    // TODO: Create an AJAX GET request for the file under data/inventory.json
+    fetch("../data/inventory.json")
+        .then(response => response.json())
+        .then(data => insertTableData(inventory = data))
+        .catch(err => console.log(err)); // print your data
+</script>
+
+</body>
+</html>
