@@ -1,6 +1,8 @@
 import { Octokit } from "https://esm.sh/@octokit/core";
+
 // Needs to set token to this value
-let token = prompt("What is the token?");
+console.log(TOKEN);
+let token = TOKEN;
 let username = "chrisjcode";
 let owner = username;
 let repo = "codeup-web-exercises";
@@ -43,6 +45,7 @@ async function getLatestCommitDate(username){
             'X-GitHub-Api-Version': '2022-11-28'
         }
     })
+    console.log(commitsResponse?.data);
     return await commitsResponse?.data[0]?.commit?.author?.date;
 }
 
