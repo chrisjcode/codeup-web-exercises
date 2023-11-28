@@ -1,9 +1,9 @@
 import { Octokit } from "https://esm.sh/@octokit/core";
-// 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 Needs to set token to this value
-let token = "";
+// Needs to set token to this value
+let token = prompt("What is the token?");
 let username = "chrisjcode";
 let owner = username;
-let repo = "codeup-web-exercises"
+let repo = "codeup-web-exercises";
 
 // Octokit.js
 // https://github.com/octokit/core.js#readme
