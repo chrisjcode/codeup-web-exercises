@@ -1,6 +1,16 @@
 // Christopher Jackson
 //  Daily Warmups
 
+// Nov 28 Pokemon API add and image
+let pokemon = document.getElementById('pokemon');
+
+// get response and then th data
+fetch("https://pokeapi.co/api/v2/pokemon/mew")
+    .then(response => response.json())
+    .then(data => pokemon.src = data.sprites.front_default)
+    .catch(err => console.log(err)); // print your data
+
+
 // Nov 6
 
 // FizzBuzz
