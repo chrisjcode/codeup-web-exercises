@@ -6,6 +6,10 @@ let token = TOKEN;
 let username = "chrisjcode";
 let owner = username;
 let repo = "codeup-web-exercises";
+// time
+let utc = new Date();
+let offset = utc.getTimezoneOffset();
+
 
 // Octokit.js
 // https://github.com/octokit/core.js#readme
@@ -46,7 +50,9 @@ async function getLatestCommitDate(username){
         }
     })
     console.log(commitsResponse?.data);
-    return await commitsResponse?.data[0]?.commit?.author?.date;
+
+
+    return new Date(new Date(await commitsResponse?.data[0]?.commit?.author?.date)  + offset * 60000);
 }
 
 document.getElementById('lastCommitDate').innerHTML = await getLatestCommitDate(username);
