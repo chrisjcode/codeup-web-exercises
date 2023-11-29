@@ -1,6 +1,26 @@
 // Christopher Jackson
 //  Daily Warmups
 
+// Nov 29
+
+let todos = [];
+
+function createToDos(todos) {
+    console.log(todos)
+    let todosContainer = document.getElementById('todos');
+    todos.forEach((todo) => {
+        console.log(todo);
+        todosContainer.appendChild(document.createElement('h1')).innerHTML = todo.name;
+        todosContainer.appendChild(document.createElement('p')).innerHTML = todo.date;
+    })
+
+}
+ fetch("../ajax/data/todo.json")
+    .then(response => response.json())
+    .then(data => createToDos(todos = data))
+    .catch(err => console.log(err));
+
+
 // Nov 28 Pokemon API add and image
 let pokemon = document.getElementById('pokemon');
 
@@ -29,7 +49,7 @@ let fizzBuzz = (num) => {
     }
 }
 
-fizzBuzz(100);
+// fizzBuzz(100);
 
 
 // Nov 1
@@ -85,7 +105,7 @@ let javaScriptGurusList = (...developers) => {
         .map((developer) => developer.name);
 }
 
-console.log(javaScriptGurusList(...developers));
+// console.log(javaScriptGurusList(...developers));
 
 
 // Oct 24
@@ -110,7 +130,7 @@ let cars = [{
     }]
 
 for (const car of cars) {
-    console.log(` I love the ${car.make} ${car.model} in ${car.color}.`)
+    // console.log(` I love the ${car.make} ${car.model} in ${car.color}.`)
 }
 
 // oct 23
@@ -118,7 +138,7 @@ for (const car of cars) {
 let movieArray = ["Major Payne", "Ace Ventura", "Toy Story", "Small Soldiers", "Catch Me If You Can"];
 
 movieArray.sort().forEach((movie) => {
-    console.log(movie);
+    // console.log(movie);
 });
 
 // oct 20
@@ -133,7 +153,7 @@ function logEvenNumbers() {
     return evenArray;
 }
 
-console.log(logEvenNumbers());
+// console.log(logEvenNumbers());
 
 
 // oct 19
@@ -142,7 +162,7 @@ let num = 100;
 
 while (num) {
     num -= 5;
-    console.log(!(num % 2) ? `${num} is even` : num);
+    // console.log(!(num % 2) ? `${num} is even` : num);
 
 
 // Oct 12
@@ -155,7 +175,7 @@ while (num) {
 
     let message = `My name is ${firstName + lastName}, and I graduted highscool ${graduationYear}`;
 
-    console.log(message);
+    // console.log(message);
 
 }
 
