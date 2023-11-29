@@ -34,7 +34,7 @@
     const map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        zoom: 13, // starting zoom
+        zoom: 12.9, // starting zoom
         center: latLong,
     });
     let belissimoLatLong;
@@ -55,7 +55,7 @@
         const popup = new mapboxgl.Popup({offset: [0, -15]})
             .setLngLat(latLong)
             .setHTML(
-                `<h3>Ready</h3><p>Set Go</p>`
+                `<h3>Belissimo Pizza</h3><p>920 Sutter St, San Francisco, CA 94109</p>`
             );
 
 
