@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Mapbox Map</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+    #map {
+    /* the width and height may be set to any size */
+    width: 100%;
+    height: 700px;
+    }
+    </style>
+</head>
+<body>
+
+<h1>My First Mapbox Map!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+
+<script src="./mapbox-geocoder-utils.js"></script>
+<!-- Custom JS -->
+<script type="module">
+    import {MAPBOX_TOKEN} from "../keys.js";
+let token = MAPBOX_TOKEN
+    mapboxgl.accessToken = token;
+    let latLong = [-96.7970, 32.7767];
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/navigation-night-v1', // style URL
+        zoom: 10, // starting zoom
+        center: latLong// [lng, lat]
+    });
+
+    // Set marker options.
+    const marker = new mapboxgl.Marker({
+        draggable: true
+    }).setLngLat(latLong)
+        .addTo(map);
+
+    let popup = new mapboxgl.Popup()
+        .setLngLat(latLong)
+        .setMaxWidth('300px')
+        .setHTML("<p>Codeup Rocks!</p>")
+        .addTo(map);
+let search = "San Antonio";
+
+geocode(search, token).then(result => {console.log(result)
+map.setCenter(result);
+})
+</script>
+</body>
+</html>
