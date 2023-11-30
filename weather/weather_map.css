@@ -4,12 +4,67 @@
     padding: 15px;
 }
 
+.card-header, .icon-holder {
+    display: flex;
+    justify-content: center;
+
+}
+
+.icon-holder {
+    align-items: center;
+}
+
+.card-header .date-text {
+    margin: 0;
+}
+
+.low-high {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.detail-value {
+    font-weight: bold;
+}
+
 .card {
     flex-basis: 20%;
     margin-top: 30px;
 }
 
-@media (max-width: 568px) {
+.current-temp {
+    margin-left: 0;
+    margin-right: 5px;
+    font-weight: bold;
+    color: teal;
+    font-size: 3em;
+    font-family: Roboto, "sans-serif";
+}
+
+.bg-body-tertiary.navbar {
+    background-color: teal !important;
+
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+form {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.search-input {
+    width: 80%;
+}
+
+.forecast-icon {
+    width: 75px;
+    height: 75px;
+}
+
+@media (max-width: 768px) {
     .card {
         flex-basis: 100%;
     }
@@ -19,4 +74,3 @@
     }
 
 }
-

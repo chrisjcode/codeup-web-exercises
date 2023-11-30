@@ -5,7 +5,7 @@ import {WEATHER_TOKEN} from "../keys.js";
 
 async function getWeatherForCast() {
     return await fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
-        `lat=29.426825118534886&lon=-98.48948239256946` +
+        `lat=32.8601&lon=-97.3639` +
         `&appid=${WEATHER_TOKEN}` +
         `&units=imperial`).then(data => data.json())
         .then(currentWeather => currentWeather);
@@ -57,20 +57,17 @@ function setUpWeatherDetails(cityDailyForecast) {
 }
 
 function placeWeatherDetails(newCard, weatherDetails) {
-    //     weatherDetails.date,
-    console.log(newCard.querySelector('.date-text'));
-    newCard.querySelector('.date-text').innerText = weatherDetails.date;
-    //     weatherDetails.lowTemp,
-    //     weatherDetails.highTemp,
-    newCard.querySelector('.low-high').innerText = weatherDetails.lowTemp + `/ ` + weatherDetails.highTemp;
-    newCard.querySelector('.current-temp').innerText = weatherDetails.currentTemp;
+    let roundUp = (temp) => Math.round(temp);
+    newCard.querySelector('.date-text').innerHTML = weatherDetails.date;
+    newCard.querySelector('.low-high').innerHTML = "<span>&#176;</span> " + weatherDetails.lowTemp.toFixed(1) + "<span class='temp-designator'> L</span>" + ` / ` + "<span>&#176;</span> " + weatherDetails.highTemp.toFixed(1) + "<span class='temp-designator'> H</span>";
+    newCard.querySelector('.current-temp').innerHTML = "<span>&#176;</span> " + `${roundUp(weatherDetails.currentTemp)}`;
     newCard.querySelector('.forecast-icon').alt = weatherDetails.description;
     newCard.querySelector('.forecast-icon').src = `  http://openweathermap.org/img/w/${weatherDetails.icon}.png`
 
-    createDetailListItem(newCard).innerText = weatherDetails.description;
-    createDetailListItem(newCard, false).innerText = weatherDetails.humidity;
-    createDetailListItem(newCard).innerText = weatherDetails.wind;
-    createDetailListItem(newCard).innerText = weatherDetails.pressure;
+    createDetailListItem(newCard).innerHTML = `Description: <span class='detail-value'>${weatherDetails.description}</span>`;
+    createDetailListItem(newCard).innerHTML = `Humidity: <span class='detail-value'>${weatherDetails.humidity}</span>`;
+    createDetailListItem(newCard).innerHTML = `Wind: <span class='detail-value'>${weatherDetails.wind}</span>`;
+    createDetailListItem(newCard).innerHTML = `Pressure: <span class='detail-value'>${weatherDetails.pressure}</span>`;
 
 
     console.log(newCard);
@@ -132,6 +129,7 @@ function createCardBodyContent(cardBody) {
 
     // Element 2 of weather-big-picture.
     let iconHolder = weatherBigPicture.appendChild(document.createElement('div'));
+    iconHolder.classList.add('icon-holder');
     let currentTempHolder = iconHolder.appendChild(document.createElement('span'));
     currentTempHolder.classList.add('current-temp');
 
@@ -144,11 +142,9 @@ function createDetailList(cardBody) {
     detailList.classList.add(...['list-group', 'list-group-flush', 'weather-details']);
 }
 
-function createDetailListItem(newCard, addClass = true) {
+function createDetailListItem(newCard) {
     let newListItem = newCard.querySelector('.weather-details').appendChild(document.createElement('li'));
-    if (addClass) {
-        newListItem.classList.add('list-group-item');
-    }
+    newListItem.classList.add('list-group-item');
     return newListItem;
 }
 
