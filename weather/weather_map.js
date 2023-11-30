@@ -13,29 +13,76 @@ async function getWeatherForCast() {
 
 // await prevents variable being used until the Promise returns, preventative for errors
 let cityForecast = await getWeatherForCast();
+let currentCity = cityForecast.city.name;
+let currentCoordinates = cityForecast.city.coord;
+
+// let cityForecast = await getWeatherForCast();
+// let cityForecast = await getWeatherForCast();
+
+console.log(cityForecast);
+console.log(currentCity);
+console.log(currentCoordinates);
 
 //2. Set Variables up from Forecast
 
+function setUpWeatherDetails(cityDailyForecast) {
+    console.log(cityDailyForecast);
+    let description = cityDailyForecast.weather[0]?.description;
+    let humidity = cityDailyForecast.main.humidity;
+    let wind = cityDailyForecast.wind.speed;
+    let pressure = cityDailyForecast.main.pressure;
+    let highTempProp = `temp_max`;
+    let highTemp = cityDailyForecast.main[highTempProp];
+    let lowTempProp = `temp_min`;
+    let lowTemp = cityDailyForecast.main[lowTempProp];
+    let currentTemp = cityDailyForecast.main.temp;
+    let icon = cityDailyForecast.weather[0].icon;
+    let dateProp = `dt_txt`;
+    let date = new Date(cityDailyForecast[dateProp]).toLocaleDateString('en-US');
+
+    return {
+        description,
+        humidity,
+        wind,
+        pressure,
+        highTemp,
+        lowTemp,
+        currentTemp,
+        icon,
+        date,
+        currentCoordinates,
+        currentCity
+    };
+
+}
+
+function placeWeatherDetails(newCard, weatherDetails) {
+    //     weatherDetails.date,
+    console.log(newCard.querySelector('.date-text'));
+    newCard.querySelector('.date-text').innerText = weatherDetails.date;
+    //     weatherDetails.lowTemp,
+    //     weatherDetails.highTemp,
+    newCard.querySelector('.low-high').innerText = weatherDetails.lowTemp + `/ ` + weatherDetails.highTemp;
+    newCard.querySelector('.current-temp').innerText = weatherDetails.currentTemp;
+    newCard.querySelector('.forecast-icon').alt = weatherDetails.description;
+    newCard.querySelector('.forecast-icon').src = `  http://openweathermap.org/img/w/${weatherDetails.icon}.png`
+
+    createDetailListItem(newCard).innerText = weatherDetails.description;
+    createDetailListItem(newCard, false).innerText = weatherDetails.humidity;
+    createDetailListItem(newCard).innerText = weatherDetails.wind;
+    createDetailListItem(newCard).innerText = weatherDetails.pressure;
+
+
+    console.log(newCard);
+}
+
 
 function displayCards(cityForecast) {
-    // setting variables for understanding even though they arent needed
-    let currentCity;
-    let description;
-    let humidity;
-    let wind;
-    let pressure;
-    let highTemp;
-    let lowTemp;
-    let currentTemp;
-    let icon;
-
     let forecastCardHolder = document.getElementById('forecast-card-container');
     for (let forecastIndex = 0; forecastIndex < cityForecast?.list?.length; forecastIndex += 8) {
         let newCard = createCard();
-        console.log(newCard);
-
-        let dateProp = `dt_txt`;
-        console.log(new Date(cityForecast?.list[forecastIndex][dateProp]).toLocaleDateString('en-US'));
+        let weatherDetails = setUpWeatherDetails(cityForecast.list[forecastIndex]);
+        placeWeatherDetails(newCard, weatherDetails);
         forecastCardHolder.appendChild(newCard);
     }
 }
@@ -65,6 +112,8 @@ function createCardContainer() {
 function createCardHeader(cardContainer) {
     let cardHeader = cardContainer.appendChild(document.createElement('div'));
     cardHeader.classList.add('card-header');
+    let dateText = cardHeader.appendChild(document.createElement('p'));
+    dateText.classList.add('date-text');
 }
 
 function createCardBody(cardContainer) {
@@ -95,9 +144,11 @@ function createDetailList(cardBody) {
     detailList.classList.add(...['list-group', 'list-group-flush', 'weather-details']);
 }
 
-function createDetailListItem(newCard) {
-    let newListItem = newCard.querySelector('.weather-details')[0].appendChild(document.createElement('li'));
-    newListItem.classList.add('list-group-item');
+function createDetailListItem(newCard, addClass = true) {
+    let newListItem = newCard.querySelector('.weather-details').appendChild(document.createElement('li'));
+    if (addClass) {
+        newListItem.classList.add('list-group-item');
+    }
     return newListItem;
 }
 
