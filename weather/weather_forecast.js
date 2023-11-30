@@ -2,6 +2,24 @@
 
 //1. Get Weather Forecast
 import {WEATHER_TOKEN} from "../keys.js";
+import {MAPBOX_TOKEN} from "../keys.js";
+
+let token = MAPBOX_TOKEN
+mapboxgl.accessToken = token;
+
+let saginawLatLong = [-97.363907, 32.860128];
+const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/navigation-night-v1', // style URL
+    zoom: 12, // starting zoom
+    center: saginawLatLong// [lng, lat]
+});
+
+// Set marker options.
+let marker = new mapboxgl.Marker({
+    draggable: true
+}).setLngLat(saginawLatLong)
+    .addTo(map);
 
 async function getWeatherForCast() {
     return await fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
@@ -13,20 +31,19 @@ async function getWeatherForCast() {
 
 // await prevents variable being used until the Promise returns, preventative for errors
 let cityForecast = await getWeatherForCast();
+
+// set current city
 let currentCity = cityForecast.city.name;
+document.getElementById('current-city').innerText = "Current City: " + `${currentCity}`;
+
 let currentCoordinates = cityForecast.city.coord;
 
 // let cityForecast = await getWeatherForCast();
 // let cityForecast = await getWeatherForCast();
 
-console.log(cityForecast);
-console.log(currentCity);
-console.log(currentCoordinates);
-
 //2. Set Variables up from Forecast
 
 function setUpWeatherDetails(cityDailyForecast) {
-    console.log(cityDailyForecast);
     let description = cityDailyForecast.weather[0]?.description;
     let humidity = cityDailyForecast.main.humidity;
     let wind = cityDailyForecast.wind.speed;
@@ -68,9 +85,6 @@ function placeWeatherDetails(newCard, weatherDetails) {
     createDetailListItem(newCard).innerHTML = `Humidity: <span class='detail-value'>${weatherDetails.humidity}</span>`;
     createDetailListItem(newCard).innerHTML = `Wind: <span class='detail-value'>${weatherDetails.wind}</span>`;
     createDetailListItem(newCard).innerHTML = `Pressure: <span class='detail-value'>${weatherDetails.pressure}</span>`;
-
-
-    console.log(newCard);
 }
 
 
@@ -153,15 +167,52 @@ displayCards(cityForecast);
 
 //4. Show map
 
-//5.  Map extras - Marker that is draggable, only one marker at a time
+// shown by weather-map.js
 
+//5.  Map extras - Marker that is draggable, only one marker at a time
+function removeMarker() {
+    if (marker) {
+        marker.remove();
+    }
+}
+
+function reAddMarker(latLong) {
+    marker = new mapboxgl.Marker({
+        draggable: true
+    }).setLngLat(latLong)
+        .addTo(map);
+}
+
+async function findCoordsBySearch(search = "Saginaw, TX") {
+    if (!search.length) {
+        return;
+    }
+    return geocode(search, token).then(result => result)
+}
+
+document.getElementById('form').addEventListener('submit', async function (event) {
+    event.preventDefault();
+    if (event.target[0].value.length) {
+        let searchValue = event.target[0].value;
+        // prevent ALL clicks from navigating
+        // removeMarker();
+        const latLong = await findCoordsBySearch(searchValue);
+        applyCoordinatesToMap(await latLong);
+        reAddMarker(await latLong);
+    }
+});
 //6. Click Functionality on map to add marker and remove old marker
 
 //7. Search Functionality For Map Data
 
+
 //8. Search Functionality For Weather Data
 
 //9.Change Map Based On Search Result
+function applyCoordinatesToMap(latLong) {
+    map.setCenter(latLong);
+}
+
 
 //10. Change Cards Based On Search Result
 

@@ -46,8 +46,12 @@
 
 }
 
-.navbar-brand {
+.navbar-brand, #current-city {
     color: white !important;
+}
+
+#current-city{
+    font-size: 14px;
 }
 
 form {
@@ -62,6 +66,11 @@ form {
 .forecast-icon {
     width: 75px;
     height: 75px;
+}
+
+#map {
+    width: 100%;
+    height: 700px;
 }
 
 @media (max-width: 768px) {
