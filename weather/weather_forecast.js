@@ -16,14 +16,11 @@ const map = new mapboxgl.Map({
 });
 
 // Set marker options.
-let marker = new mapboxgl.Marker({
-    draggable: true
-}).setLngLat(saginawLatLong)
-    .addTo(map);
+let marker;
 
-async function getWeatherForCast() {
+async function getWeatherForCast([long, lat] = [-97.3639, 32.8601]) {
     return await fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
-        `lat=32.8601&lon=-97.3639` +
+        `lon=${long}&lat=${lat}` +
         `&appid=${WEATHER_TOKEN}` +
         `&units=imperial`).then(data => data.json())
         .then(currentWeather => currentWeather);
@@ -31,15 +28,21 @@ async function getWeatherForCast() {
 
 // await prevents variable being used until the Promise returns, preventative for errors
 let cityForecast = await getWeatherForCast();
+setCurrentCity(cityForecast);
 
 // set current city
+function setCurrentCity(cityForecast) {
+    // set current city
+    let currentCity = cityForecast.city.name;
+    document.getElementById('current-city').innerText = "Current City: " + `${currentCity}`;
+    document.getElementById('current-city-header').innerText = "Weather in " + `${currentCity}`;
+
+}
+
 let currentCity = cityForecast.city.name;
 document.getElementById('current-city').innerText = "Current City: " + `${currentCity}`;
 
 let currentCoordinates = cityForecast.city.coord;
-
-// let cityForecast = await getWeatherForCast();
-// let cityForecast = await getWeatherForCast();
 
 //2. Set Variables up from Forecast
 
@@ -87,15 +90,17 @@ function placeWeatherDetails(newCard, weatherDetails) {
     createDetailListItem(newCard).innerHTML = `Pressure: <span class='detail-value'>${weatherDetails.pressure}</span>`;
 }
 
+let forecastCardHolder = document.getElementById('forecast-card-container');
 
 function displayCards(cityForecast) {
-    let forecastCardHolder = document.getElementById('forecast-card-container');
+    forecastCardHolder.innerHTML = "";
     for (let forecastIndex = 0; forecastIndex < cityForecast?.list?.length; forecastIndex += 8) {
         let newCard = createCard();
         let weatherDetails = setUpWeatherDetails(cityForecast.list[forecastIndex]);
         placeWeatherDetails(newCard, weatherDetails);
         forecastCardHolder.appendChild(newCard);
     }
+    setCurrentCity(cityForecast);
 }
 
 //3. Create Cards From Forecast
@@ -195,32 +200,64 @@ document.getElementById('form').addEventListener('submit', async function (event
     if (event.target[0].value.length) {
         let searchValue = event.target[0].value;
         // prevent ALL clicks from navigating
-        // removeMarker();
+        removeMarker();
         const latLong = await findCoordsBySearch(searchValue);
-        applyCoordinatesToMap(await latLong);
-        reAddMarker(await latLong);
+        applyCoordinatesToMap(latLong);
+        reAddMarker(latLong);
+        displayCards(await getWeatherForCast(latLong));
+
     }
 });
-//6. Click Functionality on map to add marker and remove old marker
 
-//7. Search Functionality For Map Data
-
-
-//8. Search Functionality For Weather Data
-
-//9.Change Map Based On Search Result
 function applyCoordinatesToMap(latLong) {
-    map.setCenter(latLong);
+    map.flyTo({
+        center: latLong, zoom: 12, speed: 0.8,
+        curve: 1
+    })
 }
 
+function addMarkerOnClick() {
+    if (marker) {
+        removeMarker();
+    }
+    map.on('click', add_marker.bind(this))
+    // marker = new mapboxgl.Marker();
+    marker = new mapboxgl.Marker({
+        draggable: true
+    }).setLngLat(saginawLatLong)
+        .addTo(map);
+}
 
-//10. Change Cards Based On Search Result
+addMarkerOnClick();
 
-//11. Get Coordinates on after User clicks map and Get Coordinates on marker Drop
+async function add_marker(event) {
+    console.log(event.lngLat);
+    let coordinates = event.lngLat;
+    console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
+    marker.setLngLat(coordinates).addTo(map);
 
-//12.Change Map Based On marker Drop
+    applyCoordinatesToMap([coordinates.lng, coordinates.lat]);
+    displayCards(await getWeatherForCast([coordinates.lng, coordinates.lat]));
 
-//13.Change Cards Based On Marker Drop
+}
 
-//Bonus Set up weather icons
+function markerDrop() {
+
+}
+
+async function onDragEnd() {
+    const coordinates = marker.getLngLat();
+
+    applyCoordinatesToMap([coordinates.lng, coordinates.lat]);
+    displayCards(await getWeatherForCast([coordinates.lng, coordinates.lat]));
+}
+
+marker.on('dragend', onDragEnd);
+
+
+// Marker Change By Click on map and removes old marker
+// Marker Change by clicking on new map area Triggers new map an weather data
+// Marker dropped Triggers new map an weather data
+
+
 //Bonus Update Search Bar with city of the marker drop

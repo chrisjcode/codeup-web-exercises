@@ -1,3 +1,6 @@
+body {
+    background-color: rgba(135, 206, 235, 0.6) !important;
+}
 #forecast-card-container {
     display: flex;
     gap: 10px;
@@ -30,6 +33,7 @@
 .card {
     flex-basis: 20%;
     margin-top: 30px;
+    box-shadow:2px 3px 5px #999;
 }
 
 .current-temp {
@@ -50,7 +54,7 @@
     color: white !important;
 }
 
-#current-city{
+#current-city {
     font-size: 14px;
 }
 
@@ -72,6 +76,8 @@ form {
     width: 100%;
     height: 700px;
 }
+
+
 
 @media (max-width: 768px) {
     .card {
