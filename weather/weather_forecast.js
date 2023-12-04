@@ -186,6 +186,7 @@ function reAddMarker(latLong) {
         draggable: true
     }).setLngLat(latLong)
         .addTo(map);
+    marker.on('dragend', onDragEnd);
 }
 
 async function findCoordsBySearch(search = "Saginaw, TX") {
@@ -243,17 +244,8 @@ async function add_marker(event) {
 
 async function onDragEnd() {
     const coordinates = marker.getLngLat();
-
     applyCoordinatesToMap([coordinates.lng, coordinates.lat]);
     displayCards(await getWeatherForCast([coordinates.lng, coordinates.lat]));
 }
 
 marker.on('dragend', onDragEnd);
-
-
-// Marker Change By Click on map and removes old marker
-// Marker Change by clicking on new map area Triggers new map an weather data
-// Marker dropped Triggers new map an weather data
-
-
-//Bonus Update Search Bar with city of the marker drop
