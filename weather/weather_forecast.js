@@ -80,14 +80,14 @@ function placeWeatherDetails(newCard, weatherDetails) {
     let roundUp = (temp) => Math.round(temp);
     newCard.querySelector('.date-text').innerHTML = weatherDetails.date;
     newCard.querySelector('.low-high').innerHTML = "<span>&#176;</span> " + weatherDetails.lowTemp.toFixed(1) + "<span class='temp-designator'> L</span>" + ` / ` + "<span>&#176;</span> " + weatherDetails.highTemp.toFixed(1) + "<span class='temp-designator'> H</span>";
-    newCard.querySelector('.current-temp').innerHTML = "<span>&#176;</span> " + `${roundUp(weatherDetails.currentTemp)}`;
+    newCard.querySelector('.current-temp').innerHTML = `${roundUp(weatherDetails.currentTemp)}` + "<span>&#176;</span>";
     newCard.querySelector('.forecast-icon').alt = weatherDetails.description;
     newCard.querySelector('.forecast-icon').src = `  http://openweathermap.org/img/w/${weatherDetails.icon}.png`
 
     createDetailListItem(newCard).innerHTML = `Description: <span class='detail-value'>${weatherDetails.description}</span>`;
-    createDetailListItem(newCard).innerHTML = `Humidity: <span class='detail-value'>${weatherDetails.humidity}</span>`;
-    createDetailListItem(newCard).innerHTML = `Wind: <span class='detail-value'>${weatherDetails.wind}</span>`;
-    createDetailListItem(newCard).innerHTML = `Pressure: <span class='detail-value'>${weatherDetails.pressure}</span>`;
+    createDetailListItem(newCard).innerHTML = `Humidity: <span class='detail-value'>${weatherDetails.humidity}</span> %`;
+    createDetailListItem(newCard).innerHTML = `Wind: <span class='detail-value'>${weatherDetails.wind}</span> mph`;
+    createDetailListItem(newCard).innerHTML = `Pressure: <span class='detail-value'>${weatherDetails.pressure}</span> atm`;
 }
 
 let forecastCardHolder = document.getElementById('forecast-card-container');
@@ -238,10 +238,6 @@ async function add_marker(event) {
 
     applyCoordinatesToMap([coordinates.lng, coordinates.lat]);
     displayCards(await getWeatherForCast([coordinates.lng, coordinates.lat]));
-
-}
-
-function markerDrop() {
 
 }
 
