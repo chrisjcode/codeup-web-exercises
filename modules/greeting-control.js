@@ -6,7 +6,7 @@ const getGreeting = () => {
     if (!name) {
         return;
     }
-    document.getElementById('greetings').innerHTML = `${greetings[randomizer()]}, ${name}`;
+    document.getElementById('greetings').innerHTML = `${greetings[randomizer(greetings.length-1)]}, ${name}`;
 }
 
 document.getElementById('greet-user-button').addEventListener('click', getGreeting);

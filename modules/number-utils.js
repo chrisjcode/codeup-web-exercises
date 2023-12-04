@@ -1,1 +1,1 @@
-export let randomizer = () => Math.floor((Math.random() * 19));
+export let randomizer = (arrLength) => Math.floor((Math.random() * arrLength));
