@@ -1,3 +1,4 @@
+'use strict';
 import {greetings} from './greeting-logic.js';
 import {randomizer} from './number-utils.js';
 
