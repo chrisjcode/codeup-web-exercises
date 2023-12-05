@@ -232,7 +232,6 @@ function addMarkerOnClick() {
 addMarkerOnClick();
 
 async function add_marker(event) {
-    console.log(event.lngLat);
     let coordinates = event.lngLat;
     console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
     marker.setLngLat(coordinates).addTo(map);
